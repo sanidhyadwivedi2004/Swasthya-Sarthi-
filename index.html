@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="app-title">Swasthya Sarthi - Your Health Companion</title>
+    <link rel="icon" href="https://placehold.co/32x32/2563eb/ffffff?text=SS" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="selection:bg-blue-200 selection:text-blue-800">
+  <div id="chat-container" class="flex flex-col w-full max-w-md bg-white rounded-xl shadow-2xl overflow-hidden md:h-[80vh] h-[90vh] border border-gray-100 transform scale-95 md:scale-100 transition-transform duration-300 ease-out">
+    
+    <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-t-xl shadow-lg relative z-10">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 flex items-center justify-center bg-white bg-opacity-20 rounded-full">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 10h-4V6h-4v4H6v4h4v4h4v-4h4z"/>
+          </svg>
+        </div>
+        <h1 id="chatbot-name" class="text-2xl font-bold tracking-tight">Swasthya Sarthi</h1>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="clear-chat" class="p-2 rounded-full hover:bg-white hover:bg-opacity-20 transition-all duration-200" aria-label="Clear chat history">
+          <i class="fas fa-trash-alt text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="chat-area" class="flex-1 p-4 overflow-y-auto space-y-4 bg-blue-50 scroll-smooth relative">
+      <div class="flex justify-start message-bubble">
+        <div class="bg-blue-100 text-gray-800 p-3 rounded-xl rounded-bl-none max-w-[80%] shadow-md animated-message" id="initial-bot-message">
+          <p class="font-medium">Hello! I'm Swasthya Sarthi, your health companion. How can I assist you today?</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="typing-indicator" class="px-4 py-2 bg-blue-50 hidden">
+      <div class="flex items-center space-x-2 text-gray-500">
+        <div class="dot-pulse"></div>
+        <span id="typing-text" class="text-sm">Swasthya Sarthi is typing...</span>
+      </div>
+    </div>
+
+    <div class="p-4 bg-white border-t border-gray-200 flex items-center space-x-3 rounded-b-xl shadow-inner">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Type your health question here..."
+        class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition duration-200 ease-in-out text-gray-700 placeholder-gray-400 text-base"
+        aria-label="Your health question"
+      >
+      <button
+        id="send-button"
+        class="bg-blue-600 hover:bg-cyan-700 text-white p-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400"
+        aria-label="Send message"
+      >
+        <i class="fas fa-paper-plane text-lg"></i>
+      </button>
+      <button
+        id="download-chat"
+        class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400"
+        aria-label="Download chat"
+      >
+        <i class="fas fa-download text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="context-menu" class="absolute bg-white rounded-lg shadow-xl py-1 z-50 hidden">
+    <button id="copy-message-btn" class="w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 flex items-center space-x-2">
+      <i class="fas fa-copy text-sm"></i>
+      <span>Copy Text</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

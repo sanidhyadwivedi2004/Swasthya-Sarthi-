@@ -1,0 +1,136 @@
+/* Basic body styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right bottom, #e0f7fa, #bbdefb); /* Softer, modern gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent body scroll */
+    transition: background 0.5s ease;
+}
+
+/* Chat container shadow and subtle lift */
+#chat-container {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+/* Scrollbar for chat area */
+#chat-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-area::-webkit-scrollbar-track {
+    background: #eaf8f8; /* Lighter track */
+    border-radius: 10px;
+}
+
+#chat-area::-webkit-scrollbar-thumb {
+    background: #62a4df;
+    border-radius: 10px;
+}
+
+#chat-area::-webkit-scrollbar-thumb:hover {
+    background: #3c82f6;
+}
+
+/* Message animation */
+.animated-message {
+    animation: messageEnter 0.4s ease-out forwards; /* Changed duration and added forwards */
+    opacity: 0; /* Start invisible */
+    transform: translateY(15px); /* Start slightly below */
+}
+
+@keyframes messageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing indicator animation */
+.dot-pulse {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #2563eb;
+    color: #2563eb;
+    box-shadow: 9999px 0 0 -5px, 10014px 0 0 -5px, 10029px 0 0 -5px;
+    animation: dotPulse 1.5s infinite linear;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #2563eb;
+    color: #2563eb;
+}
+
+.dot-pulse::before {
+    box-shadow: 9999px 0 0 -5px;
+    animation: dotPulseBefore 1.5s infinite linear;
+}
+
+.dot-pulse::after {
+    box-shadow: 10014px 0 0 -5px;
+    animation: dotPulseAfter 1.5s infinite linear;
+}
+
+@keyframes dotPulse {
+    0% { box-shadow: 9999px 0 0 -5px, 10014px 0 0 -5px, 10029px 0 0 -5px; }
+    16.666% { box-shadow: 9999px 0 0 0, 10014px 0 0 -5px, 10029px 0 0 -5px; }
+    33.333% { box-shadow: 9999px 0 0 -5px, 10014px 0 0 0, 10029px 0 0 -5px; }
+    50% { box-shadow: 9999px 0 0 -5px, 10014px 0 0 -5px, 10029px 0 0 0; }
+    66.666% { box-shadow: 9999px 0 0 -5px, 10014px 0 0 -5px, 10029px 0 0 -5px; }
+    100% { box-shadow: 9999px 0 0 -5px, 10014px 0 0 -5px, 10029px 0 0 -5px; }
+}
+
+@keyframes dotPulseBefore {
+    0% { box-shadow: 9999px 0 0 -5px; }
+    16.666% { box-shadow: 9999px 0 0 0; }
+    33.333% { box-shadow: 9999px 0 0 -5px; }
+    100% { box-shadow: 9999px 0 0 -5px; }
+}
+
+@keyframes dotPulseAfter {
+    0% { box-shadow: 10014px 0 0 -5px; }
+    33.333% { box-shadow: 10014px 0 0 -5px; }
+    50% { box-shadow: 10014px 0 0 0; }
+    66.666% { box-shadow: 10014px 0 0 -5px; }
+    100% { box-shadow: 10014px 0 0 -5px; }
+}
+
+/* Context Menu Styles */
+#context-menu {
+    border: 1px solid #e2e8f0; /* Light border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: top left; /* Important for scaling from the corner clicked */
+}
+
+#context-menu.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#context-menu button {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 0.5rem; /* Rounded corners for buttons */
+}
