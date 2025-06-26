@@ -36,7 +36,7 @@ Installation Steps
 Clone the Repository:
 Open your terminal or command prompt and run:
 
-git clone https://github.com/your-username/swasthya-sarthi.git
+git clone (https://github.com/sanidhyadwivedi2004/Swasthya-Sarthi-.git]
 cd swasthya-sarthi
 
 Set Up Python Virtual Environment (Recommended):
@@ -57,22 +57,6 @@ With your virtual environment activated, install the required Python packages:
 
 pip install -r requirements.txt
 
-(If requirements.txt is not provided, you will need to create one. Based on app.py and rag_setup.py, the key libraries are flask, flask-cors, pandas, langchain, langchain-core, langchain-community, ollama.)
-
-If requirements.txt is missing, create it manually:
-Create a file named requirements.txt in the root directory of your project with the following content:
-
-flask
-flask-cors
-pandas
-langchain
-langchain-core
-langchain-community
-ollama
-sentence-transformers
-chromadb
-
-Then run pip install -r requirements.txt.
 
 Download the LLM Model (phi3) using Ollama:
 Open a new terminal or command prompt (separate from where you'll run the Flask app) and ensure Ollama is running in the background. Then, pull the phi3 model:
